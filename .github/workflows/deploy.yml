@@ -18,10 +18,9 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     - uses: actions/checkout@v1
-    - name: Gatsby Publish
-      uses: enriikke/gatsby-gh-pages-action@v2.1.1
+    - uses: enriikke/gatsby-gh-pages-action@v2
       with:
-        # A personal access token needed to push your site after it has been built.
         access-token: ${{ secrets.ACCESS_TOKEN }}
-        # The branch expected by GitHub to have the static files needed for your site.
-        deploy-branch: build
+        deploy-branch: gh-pages
+        gatsby-args: --prefix-paths
+        skip-publish: true
